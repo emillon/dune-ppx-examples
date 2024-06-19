@@ -1,0 +1,4 @@
+(library
+  (name ppx_deriving_every)
+  (libraries ppxlib)
+  (kind ppx_deriver))

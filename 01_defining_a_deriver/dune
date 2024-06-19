@@ -1,0 +1,5 @@
+(executable
+ (public_name 01_deriver)
+ (name main)
+ (preprocess
+  (pps ppx_deriving_every)))
