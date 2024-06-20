@@ -1,6 +1,6 @@
 open Ppxlib
 
-let generate_impl_for_one (decl : Parsetree.type_declaration) =
+let generate_impl_for_one decl =
   let open Ast_builder.Make (struct
     let loc = decl.ptype_loc
   end) in
