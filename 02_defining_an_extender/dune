@@ -1,0 +1,12 @@
+(executable
+ (public_name 02_extender)
+ (name main)
+ (preprocess
+  (pps ppx_env))
+ (preprocessor_deps
+  (env_var PASSWORD)))
+
+(env
+ (_
+  (env-vars
+   (PASSWORD supersecret))))
