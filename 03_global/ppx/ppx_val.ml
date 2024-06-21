@@ -4,9 +4,16 @@ let rewrite vd vb =
   let open Ast_builder.Make (struct
     let loc = vd.pval_loc
   end) in
-  let me = pmod_structure [ pstr_value Nonrecursive [ vb ] ] in
-  let mt = pmty_signature [ psig_value vd ] in
-  [%stri include ([%m me] : [%m mt])]
+  let stri = pstr_value Nonrecursive [ vb ] in
+  let sigi = psig_value vd in
+  [%stri
+    include (
+      struct
+        [%%i stri]
+      end :
+        sig
+          [%%i sigi]
+        end)]
 
 let impl str =
   let previous_val = ref None in
